@@ -10,7 +10,7 @@
   <div class="container-fluid">
     <div class="row">
       <!-- ngFor -->
-      <div class="col-lg-3" *ngFor="let api of apis.APIs">
+      <div class="col-lg-3" *ngFor="let api of apis.APIs; let i = index">
           <div class="client card">
             <div class="card-close">
               <div class="dropdown">
@@ -31,7 +31,7 @@
               <div class="client-title">
                 <h3>{{api.name}}</h3>
                 <span>{{(api.description.length>20)? (api.description | slice:0:20)+'..':(api.description) }}</span>
-                <a href="#">discover</a>
+                <a [href]="'/api/' + i">discover</a>
               </div>
               <div class="client-info">
                 <div class="row">
