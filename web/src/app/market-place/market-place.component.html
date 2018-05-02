@@ -1,0 +1,60 @@
+<!-- Page Header-->
+<header class="page-header">
+  <div class="container-fluid">
+    <h2 class="no-margin-bottom">Dashboard</h2>
+  </div>
+</header>
+
+<!-- Client Section-->
+<section class="client">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- ngFor -->
+      <div class="col-lg-3" *ngFor="let api of apis.APIs">
+          <div class="client card">
+            <div class="card-close">
+              <div class="dropdown">
+                <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fa fa-ellipsis-v"></i>
+                </button>
+                <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow">
+                  <a href="#" class="dropdown-item remove">
+                    <i class="fa fa-times"></i>Close</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body text-center">
+              <div class="client-avatar">
+                <img src="http://via.placeholder.com/200x200" alt="..." class="img-fluid rounded">
+                <div class="status bg-green"></div>
+              </div>
+              <div class="client-title">
+                <h3>{{api.name}}</h3>
+                <span>{{(api.description.length>20)? (api.description | slice:0:20)+'..':(api.description) }}</span>
+                <a href="#">discover</a>
+              </div>
+              <div class="client-info">
+                <div class="row">
+                  <div class="col-4">
+                    <strong>20</strong>
+                    <br>
+                    <small>users</small>
+                  </div>
+                  <div class="col-4">
+                    <strong>54</strong>
+                    <br>
+                    <small>likes</small>
+                  </div>
+                  <div class="col-4">
+                    <strong>54</strong>
+                    <br>
+                    <small>URIs</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
