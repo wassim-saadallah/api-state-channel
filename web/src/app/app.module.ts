@@ -13,6 +13,11 @@ import { ApiComponent, ApiResolver } from './api/api.component';
 import { UriFilterPipe } from './api/uri-filter.pipe';
 import { ApiService } from './api/api.service';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +32,10 @@ import { ApiService } from './api/api.service';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     ApiResolver,
