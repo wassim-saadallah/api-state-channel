@@ -1,0 +1,418 @@
+[
+    {
+        "name": "dummy api",
+        "description": "dummy api for users",
+        "URIs":
+            [
+            {
+                "type": "GET",
+                "uri": "/users/getAll",
+                "description": "get all users"
+            }, {
+                "type": "GET",
+                "uri": "/users/get/:id",
+                "description": "get user with id"
+            },
+            {
+                "type": "POST",
+                "uri": "/users",
+                "description": "add a user"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/users/id",
+                "description": "delete a user"
+            }
+        ]
+    },
+    {
+        "name": "DREAMIA",
+        "description": "Ad mollit duis proident et duis elit.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/DREAMIA/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/DREAMIA/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/DREAMIA",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/DREAMIA/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "INTERGEEK",
+        "description": "Nisi commodo cupidatat elit do.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/INTERGEEK/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/INTERGEEK/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/INTERGEEK",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/INTERGEEK/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "LIMOZEN",
+        "description": "Labore laboris eiusmod ipsum consectetur.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/LIMOZEN/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/LIMOZEN/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/LIMOZEN",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/LIMOZEN/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "HINWAY",
+        "description": "Veniam sint non occaecat ex consequat adipisicing ullamco exercitation ut do ut proident velit dolore.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/HINWAY/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/HINWAY/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/HINWAY",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/HINWAY/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "ACRUEX",
+        "description": "Ea et quis dolor pariatur dolor fugiat nostrud fugiat exercitation in veniam laboris ex.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/ACRUEX/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/ACRUEX/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/ACRUEX",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/ACRUEX/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "PEARLESSA",
+        "description": "Aliquip in proident do aliqua nulla sunt laborum.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/PEARLESSA/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/PEARLESSA/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/PEARLESSA",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/PEARLESSA/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "KINETICUT",
+        "description": "Adipisicing tempor nisi sit tempor elit veniam consequat nulla cillum dolor eiusmod.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/KINETICUT/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/KINETICUT/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/KINETICUT",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/KINETICUT/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "SIGNIDYNE",
+        "description": "Reprehenderit sunt anim eu dolor eiusmod deserunt eiusmod incididunt.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/SIGNIDYNE/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/SIGNIDYNE/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/SIGNIDYNE",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/SIGNIDYNE/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "PLASMOSIS",
+        "description": "Proident veniam deserunt Lorem cillum proident.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/PLASMOSIS/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/PLASMOSIS/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/PLASMOSIS",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/PLASMOSIS/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "UBERLUX",
+        "description": "Velit reprehenderit ea sit aliquip in deserunt ut consectetur laborum ad aute adipisicing commodo.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/UBERLUX/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/UBERLUX/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/UBERLUX",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/UBERLUX/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "QUILCH",
+        "description": "Id cillum ex eiusmod tempor cillum minim esse commodo consectetur elit esse mollit.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/QUILCH/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/QUILCH/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/QUILCH",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/QUILCH/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "FITCORE",
+        "description": "Ipsum minim irure qui eu duis cillum occaecat est voluptate dolor laborum proident dolor.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/FITCORE/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/FITCORE/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/FITCORE",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/FITCORE/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "IDEALIS",
+        "description": "Mollit nostrud duis amet dolor aute nisi exercitation magna esse proident.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/IDEALIS/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/IDEALIS/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/IDEALIS",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/IDEALIS/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "RAMEON",
+        "description": "Elit laborum do et magna.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/RAMEON/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/RAMEON/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/RAMEON",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/RAMEON/id",
+                "description": "delete"
+            }
+        ]
+    },
+    {
+        "name": "ZOLAR",
+        "description": "Incididunt amet ad sunt id sint nisi.",
+        "URIs": [
+            {
+                "type": "GET",
+                "uri": "/ZOLAR/getAll",
+                "description": "get all"
+            },
+            {
+                "type": "GET",
+                "uri": "/ZOLAR/get/:id",
+                "description": "get id"
+            },
+            {
+                "type": "POST",
+                "uri": "/ZOLAR",
+                "description": "add"
+            },
+            {
+                "type": "DELETE",
+                "uri": "/ZOLAR/id",
+                "description": "delete"
+            }
+        ]
+    }
+]

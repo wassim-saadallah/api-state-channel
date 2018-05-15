@@ -1,6 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable, trigger, transition, style, animate, state } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { ApiService } from './api.service';
+
+
+@Injectable()
+export class ApiResolver implements Resolve<any[]> {
+
+  private api = {};
+  private amount = 50000;
+
+  constructor(private http: HttpClient) { }
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
+    const id = route.paramMap.get('id');
+    return this.http.get('http://localhost:3000/' + id);
+  }
+}
+
 
 @Component({
   selector: 'app-api',
@@ -9,19 +27,28 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ApiComponent implements OnInit {
 
-  private id: number;
-  private api = {};
+  private api: any;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  private response = {};
+
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params =>  {
+    this.route.data.subscribe(({ api }) => {
+      this.api = api;
+    })
+  }
+  
 
-      this.id = +params.id;
-
-      this.http.get('http://localhost:3000/' + this.id).subscribe(res =>{
-        this.api = res;
-      })
+  callApi(uri: string, method: string) {
+    let data: string;
+    this.apiService.callApi('http://localhost:3001' + uri, 'get').subscribe(res => {
+      console.log(JSON.stringify(res))
+      this.response = {
+        uri,
+        method,
+        data : res
+      }
     })
   }
 

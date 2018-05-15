@@ -14,6 +14,7 @@ export class MarketPlaceComponent implements OnInit {
 
   ngOnInit() {
     this.http.get('http://localhost:3000').subscribe(res =>{
+      console.log(res)
       this.apis = res;
     })
   }

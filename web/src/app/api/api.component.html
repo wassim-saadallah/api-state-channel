@@ -1,22 +1,133 @@
 <!-- Page Header-->
 <header class="page-header">
   <div class="container-fluid">
-    <h2 class="no-margin-bottom">{{api.API.name}}</h2>
+    <h1 class="no-margin-bottom">{{api.name}}
+      <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#subModal">Subscribe</button>
+    </h1>
   </div>
 </header>
 <!-- Dashboard Counts Section-->
 
-<section class="dashboard-counts dashboard-header ">
+<section class="dashboard-counts dashboard-header">
   <div class="container-fluid">
     <div class="card">
       <div class="card-header d-flex align-items-center">
-          <h3 class="h4">Requests</h3>
+        <h2 class="h4">GET Endpoints</h2>
       </div>
-      <div class="card-body" *ngFor="let item of api.API.URIs">
-        <h5 class="h4">{{item.uri}}</h5>
-        <p>{{item.description}} </p>
+      <br/>
+      <div class="card-body" *ngFor="let item of api.URIs | uriFilter: 'GET'">
+        <div class="col-6 pull-left">
+          <h5>{{item.uri}}</h5>
+          <div>
+            {{item.description}}'
+          </div>
+        </div>
+        <div class="input-group pull-right col-6">
+          <div class="input-group-prepend" data-toggle="modal" data-target="#apiModal" (click)="callApi(item.uri, 'GET')">
+            <span class="input-group-text" style="background: #2959a5">
+              <strong>&nbsp;&nbsp;&nbsp;GET&nbsp;&nbsp;&nbsp;</strong>
+            </span>
+          </div>
+          <input type="text" [value]="'localhost:3001' + item.uri" class="form-control" disabled>
+        </div>
+
+      </div>
+      <br/>
+
+      <div class="card-header d-flex align-items-center">
+        <h2 class="h4">POST Endpoints</h2>
+      </div>
+      <div class="card-body" *ngFor="let item of api.URIs | uriFilter: 'POST'">
+        <div class="col-6 pull-left">
+          <h5>{{item.uri}}</h5>
+          <div>
+            {{item.description}}'
+          </div>
+        </div>
+        <div class="input-group pull-right col-6">
+          <div class="input-group-prepend" data-toggle="modal" data-target="#apiModal" (click)="callApi(item.uri, 'POST')">
+            <span class="input-group-text" style="background: #6d1b1b">
+              <strong>&nbsp;&nbsp;POST&nbsp;&nbsp;</strong>
+            </span>
+          </div>
+          <input type="text" [value]="'localhost:3001' + item.uri" class="form-control" disabled>
+        </div>
+      </div>
+      <br/>
+
+      <div class="card-header d-flex align-items-center">
+        <h2 class="h4">DELETE Endpoints</h2>
+      </div>
+      <div class="card-body" *ngFor="let item of api.URIs | uriFilter: 'DELETE'">
+        <div class="col-6 pull-left">
+          <h5>{{item.uri}}</h5>
+          <div>
+            {{item.description}}'
+          </div>
+        </div>
+        <div class="input-group pull-right col-6">
+          <div class="input-group-prepend" data-toggle="modal" data-target="#apiModal" (click)="callApi(item.uri, 'DELETE')">
+            <span class="input-group-text" style="background: #267a1d">
+              <strong>DELETE</strong>
+            </span>
+          </div>
+          <input type="text" [value]="'localhost:3001' + item.uri" class="form-control" disabled>
+        </div>
       </div>
     </div>
+  </div>
 
+
+ <!-- ************************** subscribe modal ************************* -->
+  <div id="subModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="exampleModalLabel" class="modal-title">Signin Modal</h4>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+          <p class="alert alert-info">Make sure you have metamsk plugin downloaded and connected to your account. If you dont know what metamask is you can download it from 
+            <a href="https://metamask.io/">here</a>.</p>
+          <form>
+            <div class="form-group">
+              <label>Number of calls</label>
+              <input [(ngModel)]="amount" name="amount" type="range" min="0" max="100000" value="50000" placeholder="Email Address" class="form-control-range">
+            </div>
+            <div class="form-group">       
+              <label>Amount</label>
+              <p>{{amount / 30000}}
+            </div>
+            <div class="form-group">       
+              <input type="submit" value="Signin" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ************************** api modal ************************* -->
+  <div id="apiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="exampleModalLabel" class="modal-title">{{response.method + ":   " + response.uri}}</h4>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+            <pre><code highlight-js-content=".highlight">{{response.data | json}}</code></pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

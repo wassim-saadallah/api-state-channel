@@ -6,7 +6,7 @@ handler.open();
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/getAll', function(req, res, next) {
   res.send({result: handler.getAll()});
 });
 
@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
 
 /* GET users listing. */
 router.delete('/:id', function(req, res, next) {
-  res.send({result: handler.del(req.params.id)});
+  res.send({result: handler.del(+req.params.id)});
 });
 
 module.exports = router;

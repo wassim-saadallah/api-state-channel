@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/bootstrap/css/bootstrap.min.css";
-        @import  "assets/font-awesome/css/font-awesome.min.css";
-        @import  "assets/font-awesome/css/font-awesome.min.css";
-        @import  "https://fonts.googleapis.com/css?family=Poppins:300,400,700";
-        @import  "assets/css/style.default.css";
-        @import  "assets/css/custom.css";
-        @import  "assets/css/fontastic.css";
+@import  "assets/font-awesome/css/font-awesome.min.css";
+@import  "assets/font-awesome/css/font-awesome.min.css";
+@import  "https://fonts.googleapis.com/css?family=Poppins:300,400,700";
+@import  "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css";
+@import  "assets/css/style.default.css";
+@import  "assets/css/custom.css";
+@import  "assets/css/fontastic.css";
+
+.modal-body pre{
+        max-height: 700px;
+        overflow: scroll;
+}
+
