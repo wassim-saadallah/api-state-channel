@@ -38,6 +38,9 @@ export class ApiComponent implements OnInit {
       this.api = api;
     })
   }
+
+
+  show
   
 
   callApi(uri: string, method: string) {

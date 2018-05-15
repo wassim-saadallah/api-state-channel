@@ -1,12 +1,16 @@
 var createError = require('http-errors');
-var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var express = require('express');
+var app = express();
+
+var mongoose = require('mongoose')
+mongoose.connect('mongodb://127.0.0.1:27017/api-marketplace')
+.then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/api-marketplace`)})
+.catch(()=> { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/api-marketplace`)})
 
 var indexRouter = require('./routes/index');
-
-var app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
