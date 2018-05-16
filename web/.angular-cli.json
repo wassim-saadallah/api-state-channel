@@ -29,8 +29,7 @@
         "assets/chart.js/Chart.min.js",
         "assets/jquery-validation/jquery.validate.min.js",
         "assets/js/charts-home.js",
-        "assets/js/front.js",
-        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        "assets/js/front.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

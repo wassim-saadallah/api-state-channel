@@ -31,7 +31,7 @@
               <div class="client-title">
                 <h3>{{api.name}}</h3>
                 <span>{{(api.description.length>20)? (api.description | slice:0:20)+'..':(api.description) }}</span>
-                <a [href]="'/api/' + i">discover</a>
+                <a [href]="'/api/' + api._id">discover</a>
               </div>
               <div class="client-info">
                 <div class="row">
