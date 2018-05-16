@@ -1,13 +1,12 @@
 var mongoose = require('mongoose')
 
-var ToDoSchema = new mongoose.Schema({
-    title: String,
+var apiSchema = new mongoose.Schema({
+    name: String,
     description: String,
-    date: Date,
-    status: String
+    URIs: []
 })
 
 
-const ToDo = mongoose.model('Todo', ToDoSchema)
+const api = mongoose.model('api', apiSchema, 'api-collection')
 
-module.exports = ToDo;
+module.exports = api;

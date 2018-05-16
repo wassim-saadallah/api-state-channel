@@ -1,19 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var fs = require('fs');
-
-var APIs = JSON.parse(fs.readFileSync('api.json'));
+var api = require('../models/api')
+var ObjectId = require('mongoose').Types.ObjectId;
 
 router.get('/', function (req, res, next) {
-  res.send(APIs)
+  api.find((err, apis) => {
+    if (err) res.status(500).send(err)
+    res.status(200).send(apis)
+  })
 });
 
-router.get('/:id', function(req, res, next){
-  console.log(typeof(+req.params.id))
-  res.send(APIs[+req.params.id])
+router.get('/:id', function (req, res, next) {
+  const id = req.params.id;
+  console.log(ObjectId("" + id))
+  api.findOne({ _id: id }, (err, apis) => {
+    if (err) res.status(500).send(err)
+    res.status(200).send(apis)
+  })
 });
-
-
 
 module.exports = router;
 
