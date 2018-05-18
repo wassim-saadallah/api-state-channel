@@ -30,6 +30,9 @@ export class ApiComponent implements OnInit {
   private api: any;
 
   private response = {};
+  private account: string;
+  private balance: string;
+  private callCost = 0.0000001;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
@@ -37,10 +40,12 @@ export class ApiComponent implements OnInit {
     this.route.data.subscribe(({ api }) => {
       this.api = api;
     })
+
+    this.apiService.getAccount().then(acc => {
+      this.account = acc;
+      this.apiService.getBalance(acc).then(res => this.balance = res)
+    })
   }
-
-
-  show
   
 
   callApi(uri: string, method: string) {

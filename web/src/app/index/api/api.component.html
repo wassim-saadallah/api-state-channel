@@ -78,27 +78,32 @@
   </div>
 
 
- <!-- ************************** subscribe modal ************************* -->
-  <div id="subModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+  <!-- ************************** subscribe modal ************************* -->
+  <div id="subModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;"
+    aria-hidden="true">
     <div role="document" class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h4 id="exampleModalLabel" class="modal-title">subscribe to {{api.name}}</h4>
-          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+            <span aria-hidden="true">×</span>
+          </button>
         </div>
         <div class="modal-body">
-          <p class="alert alert-info">Make sure you have metamsk plugin downloaded and connected to your account. If you dont know what metamask is you can download it from 
+          <p class="alert alert-info">Make sure you have Metamask. If you dont know what Metamask is you can download it from
             <a href="https://metamask.io/">here</a>.</p>
+          <h2>Account</h2>
+          <p>{{ account | slice:0:10 }}... ({{ balance }} ETH)</p>
           <form>
             <div class="form-group">
               <label>Number of calls</label>
               <input [(ngModel)]="amount" name="amount" type="number" placeholder="50000" class="form-control">
             </div>
-            <div class="form-group">       
+            <div class="form-group">
               <label>Amount</label>
-              <p>{{amount * 0.00000001 || 0}} ETH
+              <p>{{amount * 0.0000001 || 0}} ETH
             </div>
-            <div class="form-group">       
+            <div class="form-group">
               <input type="submit" value="Subscribe" class="btn btn-primary">
             </div>
           </form>
@@ -114,15 +119,18 @@
 
 
   <!-- ************************** api modal ************************* -->
-  <div id="apiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;" aria-hidden="true">
+  <div id="apiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;"
+    aria-hidden="true">
     <div role="document" class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 id="exampleModalLabel" class="modal-title">{{response.method + ":   " + response.uri}}</h4>
-          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          <h4 id="exampleModalLabel" class="modal-title">{{response.method + ": " + response.uri}}</h4>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+            <span aria-hidden="true">×</span>
+          </button>
         </div>
         <div class="modal-body">
-            <pre><code highlight-js-content=".highlight">{{response.data | json}}</code></pre>
+          <pre><code highlight-js-content=".highlight">{{response.data | json}}</code></pre>
         </div>
         <div class="modal-footer">
           <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
