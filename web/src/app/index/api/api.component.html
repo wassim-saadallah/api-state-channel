@@ -103,14 +103,14 @@
               <label>Amount</label>
               <p>{{amount * 0.0000001 || 0}} ETH
             </div>
-            <div class="form-group">
-              <input type="submit" value="Subscribe" class="btn btn-primary">
-            </div>
           </form>
         </div>
+        <p *ngIf="txAdd" class="alert alert-info">You can view your transaction
+          <a href="#" (click)="navigate($event)">here</a>.
+        </p>
         <div class="modal-footer">
           <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button [disabled]="amount <= 0" type="button" (click)="subscribe()" class="btn btn-primary">Subscribe</button>
         </div>
       </div>
     </div>

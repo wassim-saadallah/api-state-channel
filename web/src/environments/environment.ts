@@ -12,5 +12,7 @@ export const environment = {
     projectId: "api-marketplace-24f23",
     storageBucket: "api-marketplace-24f23.appspot.com",
     messagingSenderId: "1083405155521"
-  }
+  },
+  contractAddress: "0xd725d75db5b65a8444805440d1a0759788cc8c5e"
 };
+

@@ -1,67 +1,86 @@
 [
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "h",
-                "type": "bytes32[3]"
-            },
-            {
-                "name": "v",
-                "type": "uint8"
-            },
-            {
-                "name": "value",
-                "type": "uint256"
-            }
-        ],
-        "name": "CloseChannel",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [],
-        "name": "OpenChannel",
-        "outputs": [],
-        "payable": true,
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "name": "client",
-                "type": "address"
-            },
-            {
-                "indexed": false,
-                "name": "deposit",
-                "type": "uint256"
-            }
-        ],
-        "name": "ChannelOpened",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "name": "client",
-                "type": "address"
-            },
-            {
-                "indexed": false,
-                "name": "value",
-                "type": "uint256"
-            }
-        ],
-        "name": "ChannelClosed",
-        "type": "event"
-    }
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "apiAdd",
+				"type": "bytes24"
+			}
+		],
+		"name": "OpenChannel",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "h",
+				"type": "bytes32[3]"
+			},
+			{
+				"name": "v",
+				"type": "uint8"
+			},
+			{
+				"name": "value",
+				"type": "uint256"
+			},
+			{
+				"name": "apiAdd",
+				"type": "bytes24"
+			}
+		],
+		"name": "CloseChannel",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "client",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "deposit",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "apiAdd",
+				"type": "bytes24"
+			}
+		],
+		"name": "ChannelOpened",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "client",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "apiAdd",
+				"type": "bytes24"
+			}
+		],
+		"name": "ChannelClosed",
+		"type": "event"
+	}
 ]

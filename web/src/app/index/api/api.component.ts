@@ -33,6 +33,8 @@ export class ApiComponent implements OnInit {
   private account: string;
   private balance: string;
   private callCost = 0.0000001;
+  private txAdd: string;
+  private amount: number = 0;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
@@ -58,6 +60,22 @@ export class ApiComponent implements OnInit {
         data : res
       }
     })
+  }
+
+  subscribe(){
+    let value = this.amount * this.callCost;
+    if(value > 0 && value < parseFloat(this.balance)){
+      this.apiService.subscribe(value, this.api._id).then(res => {
+        this.txAdd = res;
+        console.log(res)
+      }).catch(console.log)
+    }
+  }
+
+
+  navigate(event: Event){
+    event.preventDefault();
+    window.open('https://ropsten.etherscan.io/tx/' + this.txAdd, '_blank')
   }
 
 }

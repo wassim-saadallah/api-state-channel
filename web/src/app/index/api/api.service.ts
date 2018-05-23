@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-//import Web3 from 'web3';
+import { environment } from '../../../environments/environment';
 
 declare let require: any;
 declare let window: any;
@@ -22,17 +22,13 @@ export class ApiService {
   private _web3: any;
 
   private _contract: any;
-  private _contractAddress: string = "0x9a3d2dcd0f59b34a09a4024654f14691e8d7f713";
+  private _contractAddress: string = environment.contractAddress;
 
 
   constructor(private http: HttpClient) {
     if (typeof window.web3 !== 'undefined') {
       // Use Mist/MetaMask's provider
       this._web3 = new Web3(provider);
-
-      if (this._web3.version.network !== '3') {
-        alert('Please connect to the Ropesten network');
-      }
     } else {
       console.warn(
         'Please use a dapp browser like mist or MetaMask plugin for chrome'
@@ -79,19 +75,18 @@ export class ApiService {
   }
 
 
-  public async subscribe(): Promise<any> {
+  public async subscribe(amount, api): Promise<any> {
     let account = await this.getAccount();
 
     return new Promise((resolve, reject) => {
       let _web3 = this._web3;
-      this._contract.openChannel.call(account, function (err, result) {
+      this._contract.OpenChannel(api, {value: this._web3.toWei(amount, 'ether'), gasPrice: 10000}, function (err, result) {
         if (err != null) {
           reject(err);
         }
-
-        resolve(_web3.fromWei(result));
+        resolve(result);
       });
-    }) as Promise<number>;
+    }) as Promise<any>;
   }
 
   callApi(url: string, method: string, data?: any): Observable<any> {

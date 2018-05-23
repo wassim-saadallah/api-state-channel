@@ -3,10 +3,7 @@ var apiSchema = require('./api')
 
 var userSchema = new mongoose.Schema({
     uid: String,
-    api_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'api'
-    }
+    api_ids: [mongoose.Schema.Types.ObjectId]
 })
 
 
