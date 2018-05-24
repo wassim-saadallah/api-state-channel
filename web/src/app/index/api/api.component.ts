@@ -39,6 +39,7 @@ export class ApiComponent implements OnInit {
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
+    console.log('ng on init api component')
     this.route.data.subscribe(({ api }) => {
       this.api = api;
     })

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../../environments/environment';
+import { NotificationsService } from '../notifications.service';
 
 declare let require: any;
 declare let window: any;
@@ -25,7 +26,7 @@ export class ApiService {
   private _contractAddress: string = environment.contractAddress;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private notifService: NotificationsService) {
     if (typeof window.web3 !== 'undefined') {
       // Use Mist/MetaMask's provider
       this._web3 = new Web3(provider);
@@ -57,8 +58,14 @@ export class ApiService {
       }) as string;
 
       this._web3.eth.defaultAccount = this._account;
+      this._contract.ChannelOpened({ client: this._account }, (err, res) => {
+        this.notifService.update(res);
+      })
     }
     return Promise.resolve(this._account);
+
+
+
   }
 
   public async getBalance(account: string): Promise<string> {
@@ -80,7 +87,7 @@ export class ApiService {
 
     return new Promise((resolve, reject) => {
       let _web3 = this._web3;
-      this._contract.OpenChannel(api, {value: this._web3.toWei(amount, 'ether'), gasPrice: 10000}, function (err, result) {
+      this._contract.OpenChannel(api, { value: this._web3.toWei(amount, 'ether'), gasPrice: 10000 }, function (err, result) {
         if (err != null) {
           reject(err);
         }

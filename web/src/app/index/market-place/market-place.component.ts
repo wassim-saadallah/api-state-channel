@@ -10,13 +10,16 @@ export class MarketPlaceComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  private apis;
+  private apis = [];
 
   ngOnInit() {
-    this.http.get('http://localhost:3000').subscribe(res =>{
-      console.log(res)
-      this.apis = res;
-    })
+    console.log('ng on init market place component')
+    this.http.get('http://localhost:3000').subscribe(
+      res =>{
+        console.log(res)
+        this.apis = <any[]>res;
+      },
+      err => console.log(err)
+    )
   }
-
 }

@@ -9,15 +9,16 @@ import { UriFilterPipe } from './api/uri-filter.pipe';
 import { ApiService } from './api/api.service';
 import { FormsModule } from '@angular/forms';
 import { IndexRoutingModule } from './index-routing.module';
+import { NotificationsService } from './notifications.service';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
+    IndexComponent,
     MarketPlaceComponent,
     ApiComponent,
-    UriFilterPipe,
-    IndexComponent
+    UriFilterPipe
   ],
   imports: [
     CommonModule,
@@ -26,6 +27,7 @@ import { IndexRoutingModule } from './index-routing.module';
   ],
   providers: [
     ApiResolver,
+    NotificationsService,
     ApiService
   ],
   bootstrap: []
