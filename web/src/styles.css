@@ -7,6 +7,7 @@
 @import  "assets/css/style.default.css";
 @import  "assets/css/custom.css";
 @import  "assets/css/fontastic.css";
+@import  "../node_modules/ng-snotify/styles/material.css"; 
 
 .modal-body pre{
         max-height: 700px;

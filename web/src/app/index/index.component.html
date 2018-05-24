@@ -47,8 +47,8 @@
                 <i class="fa fa-bell-o"></i>
                 <span class="badge bg-red badge-corner">{{notifications.length}}</span>
               </a>
-              <ul aria-labelledby="notifications" class="dropdown-menu" *ngFor="let n of notifications">
-                <li>
+              <ul aria-labelledby="notifications" class="dropdown-menu">
+                <li *ngFor="let n of notifications">
                   <a rel="nofollow" href="#" class="dropdown-item">
                     <div class="notification">
                       <div class="notification-content">
@@ -63,70 +63,9 @@
             </li>
             <!-- Messages                        -->
             <li class="nav-item dropdown">
-              <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                class="nav-link">
-                <i class="fa fa-envelope-o"></i>
-                <span class="badge bg-orange badge-corner">10</span>
+              <a id="messages" rel="nofollow" data-target="#" href="#" (click)="onclick()" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" class="nav-link">
               </a>
-              <ul aria-labelledby="notifications" class="dropdown-menu">
-                <li>
-                  <a rel="nofollow" href="#" class="dropdown-item d-flex">
-                    <div class="msg-profile">
-                      <img src="assets/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle">
-                    </div>
-                    <div class="msg-body">
-                      <h3 class="h5">Jason Doe</h3>
-                      <span>Sent You Message</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a rel="nofollow" href="#" class="dropdown-item d-flex">
-                    <div class="msg-profile">
-                      <img src="assets/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle">
-                    </div>
-                    <div class="msg-body">
-                      <h3 class="h5">Frank Williams</h3>
-                      <span>Sent You Message</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a rel="nofollow" href="#" class="dropdown-item d-flex">
-                    <div class="msg-profile">
-                      <img src="assets/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle">
-                    </div>
-                    <div class="msg-body">
-                      <h3 class="h5">Ashley Wood</h3>
-                      <span>Sent You Message</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">
-                    <strong>Read all messages </strong>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <!-- Languages dropdown    -->
-            <li class="nav-item dropdown">
-              <a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                class="nav-link language dropdown-toggle">
-                <img src="assets/img/flags/16/GB.png" alt="English">
-                <span class="d-none d-sm-inline-block">English</span>
-              </a>
-              <ul aria-labelledby="languages" class="dropdown-menu">
-                <li>
-                  <a rel="nofollow" href="#" class="dropdown-item">
-                    <img src="assets/img/flags/16/DE.png" alt="English" class="mr-2">German</a>
-                </li>
-                <li>
-                  <a rel="nofollow" href="#" class="dropdown-item">
-                    <img src="assets/img/flags/16/FR.png" alt="English" class="mr-2">French </a>
-                </li>
-              </ul>
-            </li>
             <!-- Logout    -->
             <li class="nav-item">
               <a href="#" (click)="logout()" class="nav-link logout">Logout
@@ -190,6 +129,7 @@
           </div>
         </div>
       </footer>
+      <ng-snotify></ng-snotify>
     </div>
   </div>
 </div>

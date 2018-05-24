@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { IndexComponent } from './index.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,6 +11,7 @@ import { ApiService } from './api/api.service';
 import { FormsModule } from '@angular/forms';
 import { IndexRoutingModule } from './index-routing.module';
 import { NotificationsService } from './notifications.service';
+
 
 
 @NgModule({
@@ -23,12 +25,15 @@ import { NotificationsService } from './notifications.service';
   imports: [
     CommonModule,
     FormsModule,
-    IndexRoutingModule
+    IndexRoutingModule,
+    SnotifyModule
   ],
   providers: [
     ApiResolver,
     NotificationsService,
-    ApiService
+    ApiService,
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+    SnotifyService
   ],
   bootstrap: []
 })
