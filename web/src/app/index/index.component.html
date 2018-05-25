@@ -1,6 +1,6 @@
 <div class="page">
   <!-- Main Navbar-->
-  <ngx-loading-bar></ngx-loading-bar>
+
   <header class="header">
     <nav class="navbar">
       <!-- Search Box-->
@@ -67,12 +67,12 @@
               <a id="messages" rel="nofollow" data-target="#" href="#" (click)="onclick()" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false" class="nav-link">
               </a>
-            <!-- Logout    -->
-            <li class="nav-item">
-              <a href="#" (click)="logout()" class="nav-link logout">Logout
-                <i class="fa fa-sign-out"></i>
-              </a>
-            </li>
+              <!-- Logout    -->
+              <li class="nav-item">
+                <a href="#" (click)="logout()" class="nav-link logout">Logout
+                  <i class="fa fa-sign-out"></i>
+                </a>
+              </li>
           </ul>
         </div>
       </div>
@@ -113,6 +113,7 @@
       </ul>
     </nav>
     <div class="content-inner">
+      <ngx-loading-bar></ngx-loading-bar>
       <router-outlet></router-outlet>
       <!-- Page Footer-->
       <footer class="main-footer">

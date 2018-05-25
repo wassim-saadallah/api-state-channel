@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var clientsHandler = require('./clientsHandler')
+var clientsRouter = require('./routes/clients')
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -18,28 +20,14 @@ app.use(function(req, res, next) {
 });
 app.use(cookieParser());
 
-// handles the channel
-app.use((req, res, next) =>{
-  console.log('AAA '+ req.baseUrl + new Date())
-})
+// // handles the channel
+// app.use((req, res, next) =>{
+//     clientsHandler.getClients();
+//     next();
+// })
 
 
 app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.send('error');
-});
+app.use('/clients', clientsRouter);
 
 module.exports = app;
