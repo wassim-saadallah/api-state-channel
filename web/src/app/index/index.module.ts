@@ -11,6 +11,7 @@ import { ApiService } from './api/api.service';
 import { FormsModule } from '@angular/forms';
 import { IndexRoutingModule } from './index-routing.module';
 import { NotificationsService } from './notifications.service';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 
 
@@ -26,7 +27,8 @@ import { NotificationsService } from './notifications.service';
     CommonModule,
     FormsModule,
     IndexRoutingModule,
-    SnotifyModule
+    SnotifyModule,
+    LoadingBarRouterModule
   ],
   providers: [
     ApiResolver,

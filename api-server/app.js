@@ -18,6 +18,12 @@ app.use(function(req, res, next) {
 });
 app.use(cookieParser());
 
+// handles the channel
+app.use((req, res, next) =>{
+  console.log('AAA '+ req.baseUrl + new Date())
+})
+
+
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
