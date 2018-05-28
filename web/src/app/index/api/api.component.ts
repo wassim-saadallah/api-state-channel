@@ -32,7 +32,7 @@ export class ApiComponent implements OnInit {
   private response = {};
   private account: string;
   private balance: string;
-  private callCost = 0.0000001;
+  private callCost = 0.00001;
   private txAdd: string;
   private amount: number = 0;
 
@@ -43,7 +43,8 @@ export class ApiComponent implements OnInit {
     this.route.data.subscribe(({ api }) => {
       this.api = api;
     })
-
+    this.apiService.callCost = this.callCost;
+    console.log(this.apiService.callCost);
     this.apiService.getAccount().then(acc => {
       this.account = acc;
       this.apiService.getBalance(acc).then(res => this.balance = res)

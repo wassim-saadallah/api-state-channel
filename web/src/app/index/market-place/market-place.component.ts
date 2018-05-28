@@ -13,11 +13,11 @@ export class MarketPlaceComponent implements OnInit {
   private apis = [];
 
   ngOnInit() {
-    console.log('ng on init market place component')
     this.http.get('http://localhost:3000').subscribe(
       res =>{
         console.log(res)
         this.apis = <any[]>res;
+        sessionStorage.apis = JSON.stringify(<any[]>res);
       },
       err => console.log(err)
     )

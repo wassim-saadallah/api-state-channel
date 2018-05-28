@@ -6,6 +6,7 @@ import { ApiComponent, ApiResolver } from '../index/api/api.component';
 import { LoginComponent } from '../login/login.component';
 import { IndexComponent } from './index.component';
 import { AuthGuard } from '../login/auth.guard';
+import { MyApisComponent } from './my-apis/my-apis.component';
 
 const routes: Routes = [
 
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'market',
         component: MarketPlaceComponent
+      },
+      {
+        path: 'my-apis',
+        component: MyApisComponent
       },
       {
         path: '',

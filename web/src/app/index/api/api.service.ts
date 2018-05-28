@@ -21,7 +21,8 @@ export class ApiService {
 
   private _account: string = null;
   private _web3: any;
-
+  public callCost: number;
+  public amount
   private _contract: any;
   private _contractAddress: string = environment.contractAddress;
 
@@ -35,7 +36,6 @@ export class ApiService {
         'Please use a dapp browser like mist or MetaMask plugin for chrome'
       );
     }
-
     this._contract = this._web3.eth.contract(tokenAbi).at(this._contractAddress);
   }
 
@@ -57,15 +57,23 @@ export class ApiService {
         })
       }) as string;
 
+
+
       this._web3.eth.defaultAccount = this._account;
       this._contract.ChannelOpened({ client: this._account }, (err, res) => {
         this.notifService.update(res);
+        console.log(`data : ${this.callCost.toString()}`);
+        let hash = this._web3.sha3(this.callCost.toString());
+        console.log(`hash : ${hash}`);
+        this._web3.personal.sign(hash, this._account, (err, res) => {
+          //api key
+          let apiKey = res
+          console.log(res);
+
+        })
       })
     }
     return Promise.resolve(this._account);
-
-
-
   }
 
   public async getBalance(account: string): Promise<string> {

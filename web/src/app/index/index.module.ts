@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { IndexRoutingModule } from './index-routing.module';
 import { NotificationsService } from './notifications.service';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { MyApisComponent } from './my-apis/my-apis.component';
 
 
 
@@ -21,7 +22,8 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     IndexComponent,
     MarketPlaceComponent,
     ApiComponent,
-    UriFilterPipe
+    UriFilterPipe,
+    MyApisComponent
   ],
   imports: [
     CommonModule,
