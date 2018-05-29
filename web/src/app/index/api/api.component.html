@@ -17,7 +17,7 @@
       <br/>
       <div class="card-body" *ngFor="let item of api.URIs | uriFilter: 'GET'">
         <div class="col-6 pull-left">
-          <h5>{{item.uri}}</h5>
+          <h5>{{item.uri | slice:21}}</h5>
           <div>
             {{item.description}}'
           </div>
@@ -39,7 +39,7 @@
       </div>
       <div class="card-body" *ngFor="let item of api.URIs | uriFilter: 'POST'">
         <div class="col-6 pull-left">
-          <h5>{{item.uri}}</h5>
+          <h5>{{item.uri | slice:21}}</h5>
           <div>
             {{item.description}}'
           </div>
@@ -60,9 +60,9 @@
       </div>
       <div class="card-body" *ngFor="let item of api.URIs | uriFilter: 'DELETE'">
         <div class="col-6 pull-left">
-          <h5>{{item.uri}}</h5>
+          <h5>{{item.uri | slice:21}}</h5>
           <div>
-            {{item.description}}'
+            {{item.description}}
           </div>
         </div>
         <div class="input-group pull-right col-6">

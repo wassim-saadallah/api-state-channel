@@ -2,12 +2,13 @@ const fs = require('fs');
 const file = fs.readFileSync('clients.json');
 let clients = [];
 clients = JSON.parse(file);
-console.log('got clients')
+let callCost = 0.00001;
+console.log(clients)
 
 module.exports = {
     getClients: () => clients,
 
-    getClient: (add) => clients.find(client => client.add === add),
+    getClient: (address) => clients.find(client => client.add === address),
 
     addClient: (client) => {
         let c = clients.find(el => el.add === client.add);
@@ -21,7 +22,18 @@ module.exports = {
         return({ message: "client added" });
     },
 
-    addAmount: (add, amount) => this.getClient(add).balance += amount,
+    addToBalance: (add, amount) => {
+        let client = clients.find(client => client.add === add);
+        console.log(client)
+        client.balance += amount;
+    },
+
+    pay: (add) => {
+        let client = clients.find(client => client.add === add);
+        console.log(client);
+        client.balance -= callCost;
+        client.amount ++;
+    },
 
     commit: () => fs.writeFileSync('clients.json', JSON.stringify(clients))
 }
