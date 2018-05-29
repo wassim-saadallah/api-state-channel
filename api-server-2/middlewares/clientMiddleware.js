@@ -22,6 +22,7 @@ module.exports = function (req, res, next) {
         let client = clients.getClient(res);
         if (client.balance < callCost)
             return res.status(403).send({ message: 'no api key found' });
+        clients.addAmount(res, 1);
         return next();
     })
     console.log(add)

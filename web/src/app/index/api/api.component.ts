@@ -54,7 +54,7 @@ export class ApiComponent implements OnInit {
 
   callApi(uri: string, method: string) {
     let data: string;
-    this.apiService.callApi('http://localhost:3001' + uri, 'get').subscribe(res => {
+    this.apiService.callApi(uri, method).subscribe(res => {
       console.log(JSON.stringify(res))
       this.response = {
         uri,
