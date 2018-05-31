@@ -19,9 +19,19 @@ router.post('/', function (req, res, next) {
 
 router.get('/:id', function (req, res, next) {
     const c = handler.getClient(req.params.id)
-    if (c)
-        res.status(404).send(c)
-    res.status(200).send(c);
+    if (!c)
+        res.status(200).send({})
+    else
+        res.status(200).send(c);
+});
+
+router.delete('/:id', function (req, res, next) {
+    const c = handler.deleteClient(req.params.id);
+    handler.commit();
+    if (!c)
+        res.status(400).send(c)
+    else
+        res.status(200).send(c);
 });
 
 

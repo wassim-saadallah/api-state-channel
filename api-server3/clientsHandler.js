@@ -23,15 +23,16 @@ module.exports = {
     },
 
     deleteClient: (add) => {
-        let i = clients.findIndex(el => el.add.toLowerCase() === add.toLowerCase());
-        console.log(i)
-        if (i) {
-            clients.splice(i, 1)
-            return { message: "client deleted" }
-        }
-        else if(i == 0){
-            clients = [];
-            return { message: "client deleted" }
+        for (let i = 0; i < clients.length; i++) {
+            if (clients[i].add == add) {
+                console.log(i)
+                clients.splice(i, 1)
+                return { message: "client deleted" }
+            }
+            else if(i == 0){
+                clients = [];
+                return { message: "client deleted" }
+            }
         }
     },
 

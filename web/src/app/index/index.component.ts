@@ -22,21 +22,25 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     this.nf.newestNotif.subscribe(res => {
-      this.click();
-      this.notifications.push(res)
-      console.log(this.notifications);
+      if (typeof res == 'string')
+        this.notifications.push(res)
+      else
+        this.notifications.push(res.event + ' : ' + JSON.parse(sessionStorage.apis).find(api => api._id == res.api).name);
       this.ref.detectChanges();
+      console.log(this.notifications);
+      this.click();
     });
 
   }
 
-  click(){  
-    let button : HTMLElement = document.getElementById('messages') as HTMLElement;
+  click() {
+    let button: HTMLElement = document.getElementById('messages') as HTMLElement;
     button.click();
+    console.log('clicked')
   }
 
-  onclick(){
-    this.snotifyService.success('you have just subscribed to a new API');
+  onclick(message) {
+    this.snotifyService.success(this.notifications[this.notifications.length - 1]);
   }
 
   logout() {

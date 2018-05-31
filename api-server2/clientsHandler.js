@@ -25,7 +25,7 @@ module.exports = {
     deleteClient: (add) => {
         let i = clients.findIndex(el => el.add.toLowerCase() === add.toLowerCase());
         console.log(i)
-        if (i) {
+        if (i > 0) {
             clients.splice(i, 1)
             return { message: "client deleted" }
         }

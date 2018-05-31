@@ -67,12 +67,8 @@ export class ApiService {
 
       this._contract.ChannelOpened({ client: this._account }, (err, res) => {
         //notify user
-        console.log(this._web3.toAscii(res.args.apiId))
-        this.notifService.update({
-          event : 'subscription',
-          api: this._web3.toAscii(res.args.apiId),
-          deposit: res.args.deposit
-        });
+        let apiId = this._web3.toAscii(res.args.apiAdd)
+        this.notifService.update('subscription succeeded');
         //api key
         console.log(`data : ${this.callCost.toString()}`);
         let hash = this._web3.sha3(this.callCost.toString());
@@ -95,12 +91,8 @@ export class ApiService {
 
       this._contract.ChannelClosed({ client: this._account }, (err, res) => {
         //notify user
-        console.log('WAAAAa channel closed')
-        this.notifService.update({
-          event : 'unsubscription',
-          api: this._web3.toAscii(res.args.api),
-          
-        });
+        let apiId = this._web3.toAscii(res.args.apiAdd)
+        this.notifService.update("unsubscription succeeded");
         let data = {
           apiId: this.apiId,
           add: this._account
