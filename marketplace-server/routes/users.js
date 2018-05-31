@@ -37,8 +37,30 @@ router.post('/:id/api', (req, res, next) => {
         })
     })
         .json({ add: req.body.add, amount: 0, balance: req.body.balance })
+})
 
 
+router.post('/:id/api/delete', (req, res, next) => {
+    console.log('sending request to api server')
+    request.delete('http://localhost:3001/clients/' + req.body.add, function (err, httpResponse, body) {
+        if (err){
+            console.log(err)
+            return res.status(500).send(err)
+        }
+        console.log(body)
+        user.findOne({ uid: req.params.id }, (err, result) => {
+            if (err)
+                res.status(404).send(err)
+            if (result.api_ids.indexOf(req.body.apiId) < 0)
+                result.api_ids.push(req.body.apiId)
+            result.save(result, function (err, done) {
+                if (err)
+                    return res.status(500).send(err);
+                return res.status(200).send(result);
+            })
+        })
+    })
+        .json({ add: req.body.add, amount: 0, balance: req.body.balance })
 })
 
 router.get('/getAll', function (req, res, next) {

@@ -19,32 +19,74 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
+                  <th>Name</th>
+                  <th># of calls made</th>
+                  <th>balance left over</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter </td>
+                <tr *ngFor="let api of myapis; let i=index">
+                  <th scope="row">{{i + 1}}</th>
+                  <td>{{api.name}}</td>
+                  <td>{{api.amount}}</td>
+                  <td>{{api.balance}}</td>
+                  <td>
+                    <button class="btn btn-secondary" (click)="selected = api" data-toggle="modal" data-target="#apiKeyModal">Show API key</button>
+                  </td>
+                  <td>
+                      <button class="btn btn-primary" (click)="selected = api" data-toggle="modal" data-target="#apiModal">Unsubscribe</button>
+                    </td>
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ************************** unsubscribe modal ************************* -->
+  <div id="apiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;"
+    aria-hidden="true">
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="exampleModalLabel" class="modal-title">Confirm unsubscription from {{selected.name}}</h4>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-6 text-center">
+              <button type="button" data-dismiss="modal" class="btn btn-danger" (click)="unsubscribe()">confirm</button>
+            </div>
+            <div class="col-lg-6 text-center">
+              <button type="button" data-dismiss="modal" class="btn btn-primary">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ************************** api key modal ************************* -->
+  <div id="apiKeyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade text-left" style="display: none;"
+    aria-hidden="true">
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="exampleModalLabel" class="modal-title">Confirm unsubscription from {{selected.name}}</h4>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <pre><code>{{apiKey}}</code></pre>
           </div>
         </div>
       </div>

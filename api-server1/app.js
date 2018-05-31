@@ -21,11 +21,6 @@ app.use(function(req, res, next) {
 });
 app.use(cookieParser());
 
-// // handles the channel
-// app.use((req, res, next) =>{
-//     clientsHandler.getClients();
-//     next();
-// })
 
 
 app.use('/users',clientsMd, usersRouter);

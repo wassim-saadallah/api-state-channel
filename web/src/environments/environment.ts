@@ -13,6 +13,6 @@ export const environment = {
     storageBucket: "api-marketplace-24f23.appspot.com",
     messagingSenderId: "1083405155521"
   },
-  contractAddress: "0xd725d75db5b65a8444805440d1a0759788cc8c5e"
+  contractAddress: "0xc1d067f2051cf1ae035816307988679c539ac31b"
 };
 

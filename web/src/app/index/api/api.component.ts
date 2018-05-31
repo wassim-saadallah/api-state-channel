@@ -9,7 +9,6 @@ import { ApiService } from './api.service';
 export class ApiResolver implements Resolve<any[]> {
 
   private api = {};
-  private amount = 50000;
 
   constructor(private http: HttpClient) { }
 
@@ -32,7 +31,7 @@ export class ApiComponent implements OnInit {
   private response = {};
   private account: string;
   private balance: string;
-  private callCost = 0.00001;
+  private callCost = 100000;
   private txAdd: string;
   private amount: number = 0;
 
@@ -44,8 +43,9 @@ export class ApiComponent implements OnInit {
       this.api = api;
     })
     this.apiService.callCost = this.callCost;
-    console.log(this.apiService.callCost);
+    console.log(this.apiService.callCost, this.api);
     this.apiService.getAccount().then(acc => {
+      sessionStorage.account = acc;
       this.account = acc;
       this.apiService.getBalance(acc).then(res => this.balance = res)
     })
@@ -66,7 +66,7 @@ export class ApiComponent implements OnInit {
 
   subscribe(){
     let value = this.amount * this.callCost;
-    if(value > 0 && value < parseFloat(this.balance)){
+    if(value > 0 && value < parseInt(this.balance) * (10**18)){
       this.apiService.subscribe(value, this.api._id).then(res => {
         this.txAdd = res;
         console.log(res)
